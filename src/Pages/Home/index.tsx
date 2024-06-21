@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import InputComponent from "../components/InputComponent";
-import ResponseComponent from "../components/ResponseComponent";
+import InputComponent from "../../components/InputComponent";
+import ResponseComponent from "../../components/ResponseComponent";
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import { Container } from "./styles";
 
 export function Home() {
   const [response, setResponse] = useState("");
@@ -22,8 +23,8 @@ export function Home() {
       const prompt = input;
 
       const result = await model.generateContent(prompt);
-      const res = await result.response;
-      const text = await res.text();
+      const res = result.response;
+      const text = res.text();
       setResponse(text);
     } catch (error) {
       setResponse("Erro na requisição");
@@ -31,10 +32,10 @@ export function Home() {
   }
 
   return (
-    <div className="App">
-      <h1>Meu Sistema Web</h1>
+    <Container>
+      <h1>Perguntando pro GEMINI</h1>
       <InputComponent onRequest={handleRequest} />
       <ResponseComponent response={response} />
-    </div>
+    </Container>
   );
 }

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Container } from "./styles";
 
 interface InputComponentProps {
   onRequest: (input: string) => void;
@@ -13,7 +14,7 @@ const InputComponent: React.FC<InputComponentProps> = ({ onRequest }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <Container onSubmit={handleSubmit}>
       <input
         type="text"
         value={input}
@@ -21,7 +22,7 @@ const InputComponent: React.FC<InputComponentProps> = ({ onRequest }) => {
         placeholder="Digite algo"
       />
       <button type="submit">Enviar</button>
-    </form>
+    </Container>
   );
 };
 

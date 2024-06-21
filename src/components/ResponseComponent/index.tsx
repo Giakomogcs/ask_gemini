@@ -1,4 +1,5 @@
 import React from "react";
+import { Container } from "./styles";
 
 interface ResponseComponentProps {
   response: string;
@@ -6,10 +7,10 @@ interface ResponseComponentProps {
 
 const ResponseComponent: React.FC<ResponseComponentProps> = ({ response }) => {
   return (
-    <div>
+    <Container>
       <h2>Resposta da Requisição:</h2>
       <p>{response}</p>
-    </div>
+    </Container>
   );
 };
 
